@@ -1,0 +1,3139 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nadir & Flor — 27.08.27</title>
+
+<meta
+    name="description"
+    content="Nadir & Flor — 27 d'agost de 2027 · La Boscana, Bellvís"
+>
+
+<style>
+
+/* ==========================================================
+   FONT
+========================================================== */
+
+@font-face {
+    font-family: "BodoniZ37";
+    src: url("Bodoni Z37 M Compressed Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root {
+    --red: #7F0F1C;
+    --cream: #E5DED6;
+    --dark-red: #510D0B;
+    --black: #1E1A19;
+    --offwhite: #F6F1EC;
+    --line-dark: rgba(30, 26, 25, .25);
+    --line-light: rgba(229, 222, 214, .30);
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--red);
+    color: var(--cream);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    color: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+::selection {
+    background: var(--cream);
+    color: var(--red);
+}
+
+h1,
+h2,
+h3,
+.bodoni {
+    font-family: "BodoniZ37", "Bodoni 72", Didot, serif;
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   ANIMATION
+========================================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+        opacity .85s ease,
+        transform .85s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================
+   NAVIGATION
+========================================================== */
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    padding: 20px 3.5%;
+
+    transition:
+        background .3s ease,
+        padding .3s ease;
+}
+
+.nav.scrolled {
+    background: rgba(127, 15, 28, .94);
+    backdrop-filter: blur(8px);
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.nav-monogram {
+    width: 56px;
+    height: auto;
+}
+
+.nav-center {
+    font-size: 10px;
+    letter-spacing: .20em;
+    text-transform: uppercase;
+}
+
+.languages {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.languages button {
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    font-size: 10px;
+    letter-spacing: .15em;
+
+    opacity: .45;
+
+    transition: opacity .2s ease;
+}
+
+.languages button.active,
+.languages button:hover {
+    opacity: 1;
+}
+
+.languages span {
+    opacity: .25;
+}
+
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero {
+    position: relative;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 105px 4vw 75px;
+
+    overflow: hidden;
+}
+
+.hero-photo-wrap {
+    width: min(32vw, 470px);
+    height: 70vh;
+
+    min-height: 530px;
+    max-height: 760px;
+
+    position: relative;
+    z-index: 2;
+
+    overflow: visible;
+}
+
+.hero-photo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        grayscale(100%)
+        contrast(1.03);
+}
+
+.hero-photo-wrap::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(229,222,214,.08);
+
+    pointer-events: none;
+}
+
+
+/* LOGO GRAN PORTADA */
+
+.hero-main-logo {
+    position: absolute;
+    z-index: 6;
+
+    width: min(78vw, 1050px);
+    max-width: none;
+
+    left: 50%;
+    bottom: -7%;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+}
+
+.hero-date {
+    position: absolute;
+
+    left: 4vw;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    z-index: 7;
+}
+
+.hero-place {
+    position: absolute;
+
+    right: 4vw;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    text-align: right;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    z-index: 7;
+}
+
+.hero-bottom {
+    position: absolute;
+
+    left: 4vw;
+    right: 4vw;
+    bottom: 34px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    font-size: 13px;
+}
+
+.hero-bottom div:nth-child(2) {
+    text-align: center;
+}
+
+.hero-bottom div:nth-child(3) {
+    text-align: right;
+}
+
+
+/* ==========================================================
+   INTRO
+========================================================== */
+
+.intro {
+    background: var(--cream);
+    color: var(--red);
+
+    min-height: 92vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 135px 7vw;
+}
+
+.intro-inner {
+    width: min(1100px, 100%);
+}
+
+.intro h1 {
+    font-size: clamp(6rem, 14vw, 13rem);
+    line-height: .72;
+
+    margin-bottom: 58px;
+}
+
+.intro-copy {
+    max-width: 610px;
+    margin: auto;
+
+    color: var(--black);
+
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+
+/* ==========================================================
+   VENUE
+========================================================== */
+
+.venue {
+    background: var(--cream);
+    color: var(--black);
+
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+}
+
+.venue-copy {
+    padding: 12vw 8vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.venue h2 {
+    color: var(--red);
+
+    font-size: clamp(6rem, 12vw, 11rem);
+    line-height: .68;
+
+    margin-bottom: 55px;
+}
+
+.venue-text {
+    max-width: 520px;
+
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.venue-info {
+    margin-top: 60px;
+
+    border-top:
+        1px solid var(--line-dark);
+}
+
+.venue-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+
+    gap: 20px;
+
+    padding: 18px 0;
+
+    border-bottom:
+        1px solid var(--line-dark);
+}
+
+.venue-row strong {
+    font-family: "BodoniZ37", Didot, serif;
+
+    color: var(--red);
+
+    font-size: 22px;
+}
+
+.venue-art {
+    min-height: 680px;
+
+    background: var(--red);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+}
+
+.venue-art img {
+    width: min(68%, 440px);
+}
+
+
+/* ==========================================================
+   PROGRAM
+========================================================== */
+
+.schedule {
+    background: var(--black);
+
+    padding: 140px 7vw;
+}
+
+.schedule-head {
+    display: grid;
+    grid-template-columns: 1fr .8fr;
+
+    gap: 80px;
+
+    align-items: end;
+
+    margin-bottom: 95px;
+}
+
+.schedule h2 {
+    font-size: clamp(6rem, 12vw, 11rem);
+    line-height: .68;
+}
+
+.schedule-intro {
+    max-width: 450px;
+    line-height: 1.75;
+}
+
+.timeline {
+    border-top:
+        1px solid rgba(229,222,214,.42);
+}
+
+.timeline-row {
+    display: grid;
+    grid-template-columns: 180px 1fr auto;
+
+    align-items: center;
+
+    min-height: 95px;
+
+    border-bottom:
+        1px solid var(--line-light);
+}
+
+.timeline-time {
+    font-family: "BodoniZ37", Didot, serif;
+    font-size: 39px;
+}
+
+.timeline-title {
+    font-size: 16px;
+}
+
+.timeline-number {
+    font-size: 10px;
+    letter-spacing: .15em;
+    opacity: .36;
+}
+
+
+/* ==========================================================
+   INFORMATION
+========================================================== */
+
+.practical {
+    background: var(--red);
+
+    padding: 145px 7vw;
+}
+
+.practical-header {
+    margin-bottom: 95px;
+}
+
+.practical h2 {
+    font-size: clamp(5.5rem, 11vw, 10rem);
+    line-height: .70;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 34px;
+
+    align-items: start;
+}
+
+.info-card {
+    border-top:
+        1px solid rgba(229,222,214,.70);
+
+    padding: 28px 0 45px;
+
+    min-width: 0;
+}
+
+.info-card h3 {
+    font-size: 38px;
+    line-height: .92;
+
+    margin-bottom: 25px;
+}
+
+.info-card p {
+    max-width: 100%;
+
+    font-size: 15px;
+    line-height: 1.75;
+
+    margin-bottom: 24px;
+}
+
+.map-frame {
+    width: 100%;
+    height: 300px;
+
+    border: 0;
+
+    display: block;
+
+    filter:
+        grayscale(100%)
+        contrast(1.02);
+}
+
+.editorial-link {
+    display: inline-block;
+
+    margin-top: 6px;
+    padding-bottom: 4px;
+
+    border-bottom:
+        1px solid var(--cream);
+
+    text-decoration: none;
+
+    font-size: 12px;
+    letter-spacing: .10em;
+    text-transform: uppercase;
+
+    transition: opacity .2s ease;
+}
+
+.editorial-link:hover {
+    opacity: .6;
+}
+
+
+/* ==========================================================
+   HOTEL LIST
+========================================================== */
+
+.hotel-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 26px;
+}
+
+.hotel-link {
+    display: block;
+
+    width: 100%;
+
+    padding: 12px 0;
+
+    border-bottom:
+        1px solid rgba(229, 222, 214, .35);
+
+    color: var(--cream);
+
+    text-decoration: none;
+
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+
+    transition:
+        opacity .2s ease,
+        padding-left .2s ease;
+}
+
+.hotel-link:hover {
+    opacity: .65;
+    padding-left: 6px;
+}
+
+
+/* ==========================================================
+   GIFT SECTION
+========================================================== */
+
+.gift-section {
+    background: var(--dark-red);
+
+    padding: 105px 7vw;
+}
+
+.gift-inner {
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: .65fr 1.35fr;
+
+    gap: 90px;
+
+    align-items: start;
+}
+
+.gift-heading {
+    font-family: "BodoniZ37", Didot, serif;
+
+    font-size: clamp(3.7rem, 7vw, 6rem);
+    line-height: .75;
+}
+
+.gift-content {
+    border-top:
+        1px solid rgba(229,222,214,.5);
+
+    padding-top: 26px;
+}
+
+.gift-copy {
+    max-width: 600px;
+
+    font-size: 15px;
+    line-height: 1.8;
+
+    margin-bottom: 38px;
+}
+
+.gift-bank-label {
+    font-size: 9px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+
+    opacity: .62;
+
+    margin-bottom: 9px;
+}
+
+.gift-iban {
+    font-family: "BodoniZ37", Didot, serif;
+
+    font-size: clamp(1.7rem, 3vw, 2.6rem);
+    line-height: 1.2;
+}
+
+
+/* ==========================================================
+   ATTENDANCE
+========================================================== */
+
+.rsvp {
+    background: var(--cream);
+    color: var(--black);
+
+    padding: 150px 7vw 170px;
+}
+
+.rsvp-header {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+
+    gap: 70px;
+
+    align-items: end;
+
+    margin-bottom: 100px;
+}
+
+.rsvp h2 {
+    color: var(--red);
+
+    font-size: clamp(6rem, 13vw, 12rem);
+    line-height: .70;
+}
+
+.rsvp-lead {
+    max-width: 520px;
+
+    line-height: 1.75;
+
+    font-size: 13px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+
+/* ==========================================================
+   FORM
+========================================================== */
+
+.rsvp-form {
+    max-width: 1020px;
+
+    margin: auto;
+}
+
+.form-section {
+    margin-bottom: 78px;
+}
+
+.form-section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom:
+        1px solid rgba(30,26,25,.28);
+
+    padding-bottom: 14px;
+
+    margin-bottom: 36px;
+}
+
+.form-section-title span:first-child {
+    font-family: "BodoniZ37", Didot, serif;
+
+    color: var(--red);
+
+    font-size: 36px;
+    line-height: 1;
+}
+
+.form-section-title span:last-child {
+    font-size: 9px;
+
+    letter-spacing: .16em;
+
+    opacity: .45;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 42px;
+}
+
+.field {
+    margin-bottom: 32px;
+}
+
+.field label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--red);
+
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.field-note {
+    font-size: 10.5px;
+    line-height: 1.5;
+
+    opacity: .56;
+
+    margin-top: 8px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    border: 0;
+
+    border-bottom:
+        1px solid rgba(30,26,25,.45);
+
+    border-radius: 0;
+
+    outline: none;
+
+    background: transparent;
+
+    padding: 10px 0 12px;
+
+    color: var(--black);
+
+    font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 300;
+
+    transition:
+        border-color .2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--red);
+}
+
+textarea {
+    min-height: 95px;
+
+    resize: vertical;
+}
+
+
+/* RADIO */
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+.radio {
+    cursor: pointer;
+
+    position: relative;
+}
+
+.radio input {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.radio span {
+    display: block;
+
+    border:
+        1px solid rgba(127,15,28,.4);
+
+    padding:
+        13px
+        22px;
+
+    font-size: 14px;
+
+    transition:
+        background .2s,
+        color .2s,
+        border-color .2s;
+}
+
+.radio input:checked + span {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--cream);
+}
+
+
+/* ==========================================================
+   TOTES LES SECCIONS VISIBLES
+========================================================== */
+
+#attendance-extra {
+    display: block;
+}
+
+#guest-fields {
+    display: none;
+}
+
+#guest-fields.visible {
+    display: block;
+}
+
+
+/* ==========================================================
+   SUBMIT
+========================================================== */
+
+.submit-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-top: 70px;
+}
+
+.submit {
+    border:
+        1px solid var(--red);
+
+    background:
+        var(--red);
+
+    color:
+        var(--cream);
+
+    padding:
+        18px
+        42px;
+
+    cursor: pointer;
+
+    font-family:
+        "BodoniZ37",
+        Didot,
+        serif;
+
+    font-size: 28px;
+
+    transition:
+        background .25s,
+        color .25s;
+}
+
+.submit:hover {
+    background: transparent;
+    color: var(--red);
+}
+
+.form-note {
+    max-width: 420px;
+
+    font-size: 10px;
+    line-height: 1.55;
+
+    opacity: .56;
+}
+
+.form-message {
+    display: none;
+
+    margin-top: 35px;
+
+    color: var(--red);
+
+    font-family:
+        "BodoniZ37",
+        Didot,
+        serif;
+
+    font-size: 32px;
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.footer {
+    min-height: 75vh;
+
+    background: var(--dark-red);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 90px 5vw;
+
+    position: relative;
+}
+
+.footer-content {
+    max-width: 900px;
+}
+
+.footer-logo {
+    width: min(78vw, 820px);
+
+    margin: 0 auto 28px;
+}
+
+.footer-date {
+    font-size: 10px;
+    letter-spacing: .2em;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 820px) {
+
+    .nav {
+        grid-template-columns: 1fr 1fr;
+
+        padding: 18px 20px;
+    }
+
+    .nav-center {
+        display: none;
+    }
+
+    .nav-monogram {
+        width: 50px;
+    }
+
+    .hero {
+        padding: 95px 20px 72px;
+    }
+
+    .hero-photo-wrap {
+        width: 74vw;
+
+        height: 64vh;
+
+        min-height: 450px;
+
+        overflow: visible;
+    }
+
+    .hero-main-logo {
+        width: 150vw;
+        max-width: none;
+
+        left: 50%;
+        bottom: -5%;
+        top: auto;
+
+        transform: translateX(-50%);
+    }
+
+    .hero-date {
+        top: auto;
+
+        bottom: 24px;
+        left: 20px;
+
+        transform: none;
+
+        font-size: 11px;
+    }
+
+    .hero-place {
+        top: auto;
+
+        bottom: 24px;
+        right: 20px;
+
+        transform: none;
+
+        font-size: 11px;
+    }
+
+    .hero-bottom {
+        display: none;
+    }
+
+    .intro {
+        padding: 115px 24px;
+    }
+
+    .intro h1 {
+        font-size: 22vw;
+    }
+
+    .intro-copy {
+        font-size: 16px;
+    }
+
+    .venue {
+        grid-template-columns: 1fr;
+    }
+
+    .venue-copy {
+        padding: 100px 24px;
+    }
+
+    .venue h2 {
+        font-size: 23vw;
+    }
+
+    .venue-art {
+        min-height: 54vh;
+    }
+
+    .schedule {
+        padding: 110px 24px;
+    }
+
+    .schedule-head {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        margin-bottom: 70px;
+    }
+
+    .schedule h2 {
+        font-size: 22vw;
+    }
+
+    .timeline-row {
+        grid-template-columns: 95px 1fr;
+
+        min-height: 82px;
+    }
+
+    .timeline-number {
+        display: none;
+    }
+
+    .timeline-time {
+        font-size: 29px;
+    }
+
+    .practical {
+        padding: 110px 24px;
+    }
+
+    .practical-header {
+        margin-bottom: 70px;
+    }
+
+    .practical h2 {
+        font-size: 21vw;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .map-frame {
+        height: 290px;
+    }
+
+    .gift-section {
+        padding: 90px 24px;
+    }
+
+    .gift-inner {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .gift-heading {
+        font-size: 19vw;
+    }
+
+    .rsvp {
+        padding: 110px 24px 130px;
+    }
+
+    .rsvp-header {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        margin-bottom: 75px;
+    }
+
+    .rsvp h2 {
+        font-size: 24vw;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+    .submit-wrap {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .submit {
+        width: 100%;
+    }
+
+    .footer {
+        min-height: 62vh;
+    }
+
+    .footer-logo {
+        width: 94vw;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ========================================================
+     NAVIGATION
+======================================================== -->
+
+<nav class="nav" id="nav">
+
+    <a href="#home">
+
+        <img
+            class="nav-monogram"
+            src="logo-nf.png"
+            alt="N&F"
+        >
+
+    </a>
+
+
+    <div class="nav-center">
+        27 · 08 · 2027
+    </div>
+
+
+    <div class="languages">
+
+        <button
+            id="lang-ca"
+            class="active"
+            onclick="setLanguage('ca')">
+            CAT
+        </button>
+
+        <span>/</span>
+
+        <button
+            id="lang-es"
+            onclick="setLanguage('es')">
+            ESP
+        </button>
+
+        <span>/</span>
+
+        <button
+            id="lang-en"
+            onclick="setLanguage('en')">
+            ENG
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ========================================================
+     PORTADA
+======================================================== -->
+
+<header class="hero" id="home">
+
+
+    <div class="hero-photo-wrap">
+
+        <img
+            class="hero-photo"
+            src="foto.jpg"
+            alt="Nadir i Flor"
+        >
+
+
+        <img
+            class="hero-main-logo"
+            src="logo-nadir-flor.png"
+            alt="Nadir & Flor"
+        >
+
+    </div>
+
+
+    <div class="hero-date">
+
+        27 08 27<br>
+        18:30 h
+
+    </div>
+
+
+    <div class="hero-place">
+
+        La Boscana<br>
+        Bellvís · Lleida
+
+    </div>
+
+
+    <div class="hero-bottom">
+
+        <div>Save</div>
+
+        <div>the</div>
+
+        <div>Date</div>
+
+    </div>
+
+
+</header>
+
+
+
+<!-- ========================================================
+     ENS CASEM
+======================================================== -->
+
+<section class="intro">
+
+    <div class="intro-inner reveal">
+
+
+        <h1
+            data-ca="Ens Casem"
+            data-es="Nos Casamos"
+            data-en="We're Getting Married">
+
+            Ens Casem
+
+        </h1>
+
+
+        <p
+            class="intro-copy"
+
+            data-ca="Hi ha dies que volem recordar per sempre. El 27 d'agost de 2027 serà un d'ells. Ens farà molt feliços celebrar-lo envoltades de les persones que formen part de la nostra història."
+
+            data-es="Hay días que queremos recordar para siempre. El 27 de agosto de 2027 será uno de ellos. Nos hará muy felices celebrarlo rodeadas de las personas que forman parte de nuestra historia."
+
+            data-en="There are days we want to remember forever. August 27th, 2027 will be one of them. We would love to celebrate it surrounded by the people who are part of our story.">
+
+            Hi ha dies que volem recordar per sempre.
+            El 27 d'agost de 2027 serà un d'ells.
+            Ens farà molt feliços celebrar-lo envoltades
+            de les persones que formen part
+            de la nostra història.
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================================
+     LA BOSCANA
+======================================================== -->
+
+<section class="venue">
+
+
+    <div class="venue-copy reveal">
+
+
+        <h2>
+
+            La<br>
+            Boscana
+
+        </h2>
+
+
+        <p
+            class="venue-text"
+
+            data-ca="Ens trobarem a La Boscana, a Bellvís, envoltades de natura i a pocs minuts de Lleida. Aquí tindran lloc la cerimònia, l'aperitiu, el sopar i la festa."
+
+            data-es="Nos encontraremos en La Boscana, en Bellvís, rodeadas de naturaleza y a pocos minutos de Lleida. Aquí tendrán lugar la ceremonia, el aperitivo, la cena y la fiesta."
+
+            data-en="We'll meet at La Boscana in Bellvís, surrounded by nature and just a short drive from Lleida. The ceremony, cocktail, dinner and party will all take place here.">
+
+            Ens trobarem a La Boscana,
+            a Bellvís, envoltades de natura
+            i a pocs minuts de Lleida.
+
+        </p>
+
+
+        <div class="venue-info">
+
+
+            <div class="venue-row">
+
+                <strong
+                    data-ca="Data"
+                    data-es="Fecha"
+                    data-en="Date">
+                    Data
+                </strong>
+
+                <span>
+                    27 · 08 · 2027
+                </span>
+
+            </div>
+
+
+            <div class="venue-row">
+
+                <strong
+                    data-ca="Hora"
+                    data-es="Hora"
+                    data-en="Time">
+                    Hora
+                </strong>
+
+                <span>
+                    18:30 h
+                </span>
+
+            </div>
+
+
+            <div class="venue-row">
+
+                <strong
+                    data-ca="Lloc"
+                    data-es="Lugar"
+                    data-en="Place">
+                    Lloc
+                </strong>
+
+                <span>
+                    La Boscana · Bellvís · Lleida
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="venue-art">
+
+        <img
+            class="reveal"
+            src="logo-nf.png"
+            alt="N&F"
+        >
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================================
+     PROGRAMA
+======================================================== -->
+
+<section class="schedule">
+
+
+    <div class="schedule-head reveal">
+
+
+        <h2
+            data-ca="Programa"
+            data-es="Programa"
+            data-en="Programme">
+            Programa
+        </h2>
+
+
+        <p
+            class="schedule-intro"
+
+            data-ca="Us deixem els horaris principals perquè només us hàgiu de preocupar de venir, brindar, sopar i gaudir."
+
+            data-es="Os dejamos los horarios principales para que solo tengáis que preocuparos de venir, brindar, cenar y disfrutar."
+
+            data-en="Here are the main timings so all you need to do is arrive, toast, dine and enjoy.">
+
+            Us deixem els horaris principals
+            perquè només us hàgiu de preocupar
+            de venir, brindar, sopar i gaudir.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="timeline reveal">
+
+
+        <div class="timeline-row">
+
+            <div class="timeline-time">
+                18:30
+            </div>
+
+            <div
+                class="timeline-title"
+
+                data-ca="Arribada convidats"
+                data-es="Llegada invitados"
+                data-en="Guest arrival">
+
+                Arribada convidats
+
+            </div>
+
+            <div class="timeline-number">
+                01
+            </div>
+
+        </div>
+
+
+        <div class="timeline-row">
+
+            <div class="timeline-time">
+                19:00
+            </div>
+
+            <div
+                class="timeline-title"
+
+                data-ca="Cerimònia"
+                data-es="Ceremonia"
+                data-en="Ceremony">
+
+                Cerimònia
+
+            </div>
+
+            <div class="timeline-number">
+                02
+            </div>
+
+        </div>
+
+
+        <div class="timeline-row">
+
+            <div class="timeline-time">
+                20:00
+            </div>
+
+            <div
+                class="timeline-title"
+
+                data-ca="Aperitiu"
+                data-es="Aperitivo"
+                data-en="Cocktail">
+
+                Aperitiu
+
+            </div>
+
+            <div class="timeline-number">
+                03
+            </div>
+
+        </div>
+
+
+        <div class="timeline-row">
+
+            <div class="timeline-time">
+                22:00
+            </div>
+
+            <div
+                class="timeline-title"
+
+                data-ca="Sopar"
+                data-es="Cena"
+                data-en="Dinner">
+
+                Sopar
+
+            </div>
+
+            <div class="timeline-number">
+                04
+            </div>
+
+        </div>
+
+
+        <div class="timeline-row">
+
+            <div class="timeline-time">
+                00:00
+            </div>
+
+            <div
+                class="timeline-title"
+
+                data-ca="Festa"
+                data-es="Fiesta"
+                data-en="Party">
+
+                Festa
+
+            </div>
+
+            <div class="timeline-number">
+                05
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================================
+     INFORMACIÓ
+======================================================== -->
+
+<section class="practical">
+
+
+    <div class="practical-header reveal">
+
+
+        <h2
+            data-ca="Informació"
+            data-es="Información"
+            data-en="Information">
+
+            Informació
+
+        </h2>
+
+
+    </div>
+
+
+    <div class="info-grid">
+
+
+        <!-- COM ARRIBAR -->
+
+        <article class="info-card reveal">
+
+
+            <h3
+                data-ca="Com arribar"
+                data-es="Cómo llegar"
+                data-en="Getting there">
+
+                Com arribar
+
+            </h3>
+
+
+            <p
+                data-ca="La celebració tindrà lloc a La Boscana, a Bellvís. Aquí teniu la ubicació perquè us sigui més fàcil planificar el trajecte."
+
+                data-es="La celebración tendrá lugar en La Boscana, en Bellvís. Aquí tenéis la ubicación para que os resulte más fácil planificar el trayecto."
+
+                data-en="The celebration will take place at La Boscana, in Bellvís. Here is the location so you can plan your journey easily.">
+
+                La celebració tindrà lloc
+                a La Boscana, a Bellvís.
+
+            </p>
+
+
+            <iframe
+                class="map-frame"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=41.6619115,0.8080065&z=16&output=embed">
+            </iframe>
+
+
+        </article>
+
+
+
+        <!-- DRESS CODE -->
+
+        <article class="info-card reveal">
+
+
+            <h3>
+                Dress<br>
+                code
+            </h3>
+
+
+            <p
+                data-ca="Volem una celebració elegant però relaxada. Hem preparat una selecció d'inspiracions perquè pugueu veure alguns exemples de looks."
+
+                data-es="Queremos una celebración elegante pero relajada. Hemos preparado una selección de inspiración para que podáis ver algunos ejemplos de looks."
+
+                data-en="We're planning an elegant but relaxed celebration. We've prepared some inspiration so you can see a few example looks.">
+
+                Volem una celebració elegant
+                però relaxada.
+
+            </p>
+
+
+            <a
+                class="editorial-link"
+                href="https://pin.it/489wNbONR"
+                target="_blank"
+                rel="noopener noreferrer"
+
+                data-ca="Veure inspiració de looks ↗"
+                data-es="Ver inspiración de looks ↗"
+                data-en="View outfit inspiration ↗">
+
+                Veure inspiració de looks ↗
+
+            </a>
+
+
+        </article>
+
+
+
+        <!-- ALLOTJAMENT -->
+
+        <article class="info-card reveal">
+
+
+            <h3
+                data-ca="Allotjament"
+                data-es="Alojamiento"
+                data-en="Accommodation">
+
+                Allotjament
+
+            </h3>
+
+
+            <p
+                data-ca="Us deixem algunes opcions d'allotjament a Lleida i voltants perquè pugueu escollir la que us vagi millor."
+
+                data-es="Os dejamos algunas opciones de alojamiento en Lleida y alrededores para que podáis escoger la que os vaya mejor."
+
+                data-en="Here are a few accommodation options in Lleida and nearby so you can choose whichever suits you best.">
+
+                Us deixem algunes opcions
+                d'allotjament a Lleida i voltants
+                perquè pugueu escollir
+                la que us vagi millor.
+
+            </p>
+
+
+            <div class="hotel-list">
+
+
+                <a
+                    class="hotel-link"
+                    href="https://fincaprats.com/es/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    La Finca Prats ↗
+
+                </a>
+
+
+                <a
+                    class="hotel-link"
+                    href="https://all.accor.com/booking/es/ibis/hotel/7588?destination=lleida-spain&compositions=1&dateIn=2026-10-17&dateOut=2026-10-18&nights=1&hideWDR=false&accessibleRoom=false"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Ibis Budget Lleida ↗
+
+                </a>
+
+
+                <a
+                    class="hotel-link"
+                    href="https://all.accor.com/booking/es/ibis/hotel/7589?destination=lleida-spain&compositions=1&dateIn=2026-10-17&dateOut=2026-10-18&nights=1&hideWDR=false&accessibleRoom=false"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Ibis Lleida ↗
+
+                </a>
+
+
+                <a
+                    class="hotel-link"
+                    href="https://www.hotelsansilleida.com/ca/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Hotel Sansi ↗
+
+                </a>
+
+
+                <a
+                    class="hotel-link"
+                    href="https://www.nh-hotels.com/es/hotel/nh-lleida-pirineos"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Hotel NH Pirineus ↗
+
+                </a>
+
+
+            </div>
+
+
+        </article>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================================
+     REGAL
+======================================================== -->
+
+<section class="gift-section">
+
+
+    <div class="gift-inner reveal">
+
+
+        <div>
+
+
+            <div
+                class="gift-heading"
+
+                data-ca="Regal"
+                data-es="Regalo"
+                data-en="Gift">
+
+                Regal
+
+            </div>
+
+
+        </div>
+
+
+        <div class="gift-content">
+
+
+            <p
+                class="gift-copy"
+
+                data-ca="El millor regal és poder compartir aquest dia amb vosaltres. Si, a més, ens voleu ajudar a començar aquesta nova etapa juntes, podeu fer-ho aquí."
+
+                data-es="El mejor regalo es poder compartir este día con vosotros. Si, además, queréis ayudarnos a comenzar esta nueva etapa juntas, podéis hacerlo aquí."
+
+                data-en="The greatest gift is simply sharing this day with you. If you'd also like to help us begin this new chapter together, you can do so here.">
+
+                El millor regal és poder
+                compartir aquest dia amb vosaltres.
+                Si, a més, ens voleu ajudar
+                a començar aquesta nova etapa juntes,
+                podeu fer-ho aquí.
+
+            </p>
+
+
+            <div
+                class="gift-bank-label"
+
+                data-ca="Compte corrent"
+                data-es="Cuenta corriente"
+                data-en="Bank account">
+
+                Compte corrent
+
+            </div>
+
+
+            <div class="gift-iban">
+
+                ESXX XXXX XXXX XXXX XXXX XXXX
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================================
+     ASSISTÈNCIA
+======================================================== -->
+
+<section
+    class="rsvp"
+    id="rsvp"
+>
+
+
+    <div class="rsvp-header reveal">
+
+
+        <h2
+            data-ca="Assistència"
+            data-es="Asistencia"
+            data-en="Attendance">
+
+            Assistència
+
+        </h2>
+
+
+        <p
+            class="rsvp-lead"
+
+            data-ca="CONFIRMA'NS SI PODRÀS ACOMPANYAR-NOS I INDICA'NS TAMBÉ SI VINDRÀS AMB ACOMPANYANT, SI NECESSITARÀS BUS O SI TENIU ALGUNA AL·LÈRGIA O NECESSITAT ALIMENTÀRIA."
+
+            data-es="CONFÍRMANOS SI PODRÁS ACOMPAÑARNOS E INDÍCANOS TAMBIÉN SI VENDRÁS CON ACOMPAÑANTE, SI NECESITARÁS BUS O SI TENÉIS ALGUNA ALERGIA O NECESIDAD ALIMENTARIA."
+
+            data-en="PLEASE LET US KNOW IF YOU'LL BE JOINING US, WHETHER YOU'LL BRING A GUEST, NEED THE BUS, OR HAVE ANY ALLERGIES OR DIETARY REQUIREMENTS.">
+
+            CONFIRMA'NS SI PODRÀS ACOMPANYAR-NOS
+            I INDICA'NS TAMBÉ SI VINDRÀS
+            AMB ACOMPANYANT, SI NECESSITARÀS BUS
+            O SI TENIU ALGUNA AL·LÈRGIA.
+
+        </p>
+
+
+    </div>
+
+
+
+    <form
+        id="wedding-form"
+        class="rsvp-form reveal"
+        action="https://formspree.io/f/maewbzre"
+        method="POST"
+    >
+
+
+        <input
+            type="hidden"
+            name="_subject"
+            value="Assistència — Boda Nadir & Flor"
+        >
+
+
+
+        <!-- 01 LES TEVES DADES -->
+
+        <div class="form-section">
+
+
+            <div class="form-section-title">
+
+
+                <span
+                    data-ca="Les teves dades"
+                    data-es="Tus datos"
+                    data-en="Your details">
+
+                    Les teves dades
+
+                </span>
+
+
+                <span>
+                    01
+                </span>
+
+
+            </div>
+
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+
+                    <label
+                        data-ca="Nom"
+                        data-es="Nombre"
+                        data-en="First name">
+
+                        Nom
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        name="Nom"
+                        required
+                    >
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label
+                        data-ca="Cognoms"
+                        data-es="Apellidos"
+                        data-en="Surname">
+
+                        Cognoms
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        name="Cognoms"
+                        required
+                    >
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- 02 ASSISTÈNCIA -->
+
+        <div class="form-section">
+
+
+            <div class="form-section-title">
+
+
+                <span
+                    data-ca="Vindràs?"
+                    data-es="¿Vendrás?"
+                    data-en="Will you be there?">
+
+                    Vindràs?
+
+                </span>
+
+
+                <span>
+                    02
+                </span>
+
+
+            </div>
+
+
+            <div class="field">
+
+
+                <label
+                    data-ca="Confirma la teva assistència"
+                    data-es="Confirma tu asistencia"
+                    data-en="Confirm your attendance">
+
+                    Confirma la teva assistència
+
+                </label>
+
+
+                <div class="radio-group">
+
+
+                    <label class="radio">
+
+
+                        <input
+                            type="radio"
+                            name="Assistencia"
+                            value="Sí"
+                            required
+                            onchange="attendanceChanged()"
+                        >
+
+
+                        <span
+                            data-ca="Sí, hi seré"
+                            data-es="Sí, estaré"
+                            data-en="Yes, I'll be there">
+
+                            Sí, hi seré
+
+                        </span>
+
+
+                    </label>
+
+
+
+                    <label class="radio">
+
+
+                        <input
+                            type="radio"
+                            name="Assistencia"
+                            value="No"
+                            onchange="attendanceChanged()"
+                        >
+
+
+                        <span
+                            data-ca="No podré venir"
+                            data-es="No podré ir"
+                            data-en="I can't make it">
+
+                            No podré venir
+
+                        </span>
+
+
+                    </label>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div id="attendance-extra">
+
+
+
+            <!-- 03 ACOMPANYANT -->
+
+            <div class="form-section">
+
+
+                <div class="form-section-title">
+
+
+                    <span
+                        data-ca="Acompanyant"
+                        data-es="Acompañante"
+                        data-en="Guest">
+
+                        Acompanyant
+
+                    </span>
+
+
+                    <span>
+                        03
+                    </span>
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label
+                        data-ca="Vindràs amb una persona acompanyant?"
+                        data-es="¿Vendrás con una persona acompañante?"
+                        data-en="Will you be bringing a guest?">
+
+                        Vindràs amb una persona acompanyant?
+
+                    </label>
+
+
+                    <div class="radio-group">
+
+
+                        <label class="radio">
+
+
+                            <input
+                                type="radio"
+                                name="Acompanyant"
+                                value="No"
+                                onchange="guestChanged()"
+                            >
+
+
+                            <span
+                                data-ca="No"
+                                data-es="No"
+                                data-en="No">
+
+                                No
+
+                            </span>
+
+
+                        </label>
+
+
+                        <label class="radio">
+
+
+                            <input
+                                type="radio"
+                                name="Acompanyant"
+                                value="Sí"
+                                onchange="guestChanged()"
+                            >
+
+
+                            <span
+                                data-ca="Sí"
+                                data-es="Sí"
+                                data-en="Yes">
+
+                                Sí
+
+                            </span>
+
+
+                        </label>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div id="guest-fields">
+
+
+                    <div class="form-row">
+
+
+                        <div class="field">
+
+
+                            <label
+                                data-ca="Nom de l'acompanyant"
+                                data-es="Nombre del acompañante"
+                                data-en="Guest first name">
+
+                                Nom de l'acompanyant
+
+                            </label>
+
+
+                            <input
+                                id="guest-name"
+                                type="text"
+                                name="Acompanyant_Nom"
+                            >
+
+
+                            <div
+                                class="field-note"
+
+                                data-ca="Nom de la persona que t'acompanyarà."
+                                data-es="Nombre de la persona que te acompañará."
+                                data-en="Name of the person who will accompany you.">
+
+                                Nom de la persona
+                                que t'acompanyarà.
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="field">
+
+
+                            <label
+                                data-ca="Cognoms"
+                                data-es="Apellidos"
+                                data-en="Surname">
+
+                                Cognoms
+
+                            </label>
+
+
+                            <input
+                                id="guest-surname"
+                                type="text"
+                                name="Acompanyant_Cognoms"
+                            >
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- 04 BUS -->
+
+            <div class="form-section">
+
+
+                <div class="form-section-title">
+
+
+                    <span>
+                        Bus
+                    </span>
+
+
+                    <span>
+                        04
+                    </span>
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label
+                        data-ca="Necessitaràs bus des de Lleida?"
+                        data-es="¿Necesitarás bus desde Lleida?"
+                        data-en="Will you need the bus from Lleida?">
+
+                        Necessitaràs bus des de Lleida?
+
+                    </label>
+
+
+                    <select name="Bus">
+
+
+                        <option
+                            value=""
+                            data-ca="Selecciona una opció"
+                            data-es="Selecciona una opción"
+                            data-en="Select an option">
+
+                            Selecciona una opció
+
+                        </option>
+
+
+                        <option
+                            value="No"
+                            data-ca="No necessito bus"
+                            data-es="No necesito bus"
+                            data-en="I don't need the bus">
+
+                            No necessito bus
+
+                        </option>
+
+
+                        <option
+                            value="Anada i tornada"
+                            data-ca="Sí, anada i tornada"
+                            data-es="Sí, ida y vuelta"
+                            data-en="Yes, both ways">
+
+                            Sí, anada i tornada
+
+                        </option>
+
+
+                        <option
+                            value="Només anada"
+                            data-ca="Només anada"
+                            data-es="Solo ida"
+                            data-en="Outbound only">
+
+                            Només anada
+
+                        </option>
+
+
+                        <option
+                            value="Només tornada"
+                            data-ca="Només tornada"
+                            data-es="Solo vuelta"
+                            data-en="Return only">
+
+                            Només tornada
+
+                        </option>
+
+
+                    </select>
+
+
+                    <div
+                        class="field-note"
+
+                        data-ca="El servei de bus connectarà Lleida amb La Boscana. Més endavant confirmarem els horaris."
+
+                        data-es="El servicio de bus conectará Lleida con La Boscana. Más adelante confirmaremos los horarios."
+
+                        data-en="The bus service will connect Lleida with La Boscana. Timings will be confirmed later.">
+
+                        El servei de bus connectarà
+                        Lleida amb La Boscana.
+                        Més endavant confirmarem els horaris.
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- 05 AL·LÈRGIES -->
+
+            <div class="form-section">
+
+
+                <div class="form-section-title">
+
+
+                    <span
+                        data-ca="Al·lèrgies"
+                        data-es="Alergias"
+                        data-en="Allergies">
+
+                        Al·lèrgies
+
+                    </span>
+
+
+                    <span>
+                        05
+                    </span>
+
+
+                </div>
+
+
+                <div class="field">
+
+
+                    <label
+                        data-ca="Al·lèrgies, intoleràncies o necessitats alimentàries"
+                        data-es="Alergias, intolerancias o necesidades alimentarias"
+                        data-en="Allergies, intolerances or dietary requirements">
+
+                        Al·lèrgies, intoleràncies
+                        o necessitats alimentàries
+
+                    </label>
+
+
+                    <textarea
+                        name="Allergies"
+
+                        data-placeholder-ca="Nom de la persona + al·lèrgia o necessitat alimentària"
+                        data-placeholder-es="Nombre de la persona + alergia o necesidad alimentaria"
+                        data-placeholder-en="Guest name + allergy or dietary requirement"
+
+                        placeholder="Nom de la persona + al·lèrgia o necessitat alimentària"
+                    ></textarea>
+
+
+                    <div
+                        class="field-note"
+
+                        data-ca="Exemple: Nadir — sense gluten / Acompanyant — vegetariana."
+                        data-es="Ejemplo: Nadir — sin gluten / Acompañante — vegetariana."
+                        data-en="Example: Nadir — gluten free / Guest — vegetarian.">
+
+                        Exemple:
+                        Nadir — sense gluten /
+                        Acompanyant — vegetariana.
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ENVIAR -->
+
+        <div class="submit-wrap">
+
+
+            <button
+                type="submit"
+                class="submit"
+
+                data-ca="Enviar confirmació"
+                data-es="Enviar confirmación"
+                data-en="Send confirmation">
+
+                Enviar confirmació
+
+            </button>
+
+
+            <p
+                class="form-note"
+
+                data-ca="Les dades d'aquest formulari s'utilitzaran únicament per gestionar l'assistència, el transport i les necessitats relacionades amb la celebració."
+
+                data-es="Los datos de este formulario se utilizarán únicamente para gestionar la asistencia, el transporte y las necesidades relacionadas con la celebración."
+
+                data-en="The information in this form will only be used to manage attendance, transport and requirements related to the celebration.">
+
+                Les dades d'aquest formulari
+                s'utilitzaran únicament per gestionar
+                l'assistència i la celebració.
+
+            </p>
+
+
+        </div>
+
+
+        <div
+            class="form-message"
+            id="form-message"
+
+            data-ca="Gràcies! Hem rebut la teva confirmació."
+            data-es="¡Gracias! Hemos recibido tu confirmación."
+            data-en="Thank you! We've received your confirmation.">
+
+            Gràcies!
+            Hem rebut la teva confirmació.
+
+        </div>
+
+
+    </form>
+
+
+</section>
+
+
+
+<!-- ========================================================
+     FOOTER
+======================================================== -->
+
+<footer class="footer">
+
+
+    <div class="footer-content reveal">
+
+
+        <img
+            class="footer-logo"
+            src="logo-nadir-flor.png"
+            alt="Nadir & Flor"
+        >
+
+
+        <div class="footer-date">
+
+            27 · 08 · 2027
+            &nbsp;&nbsp;·&nbsp;&nbsp;
+            LA BOSCANA
+
+        </div>
+
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- ========================================================
+     JAVASCRIPT
+======================================================== -->
+
+<script>
+
+
+let currentLanguage = "ca";
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+function setLanguage(lang) {
+
+    currentLanguage = lang;
+
+    document.documentElement.lang = lang;
+
+
+    document
+        .querySelectorAll(`[data-${lang}]`)
+        .forEach(element => {
+
+            element.textContent =
+                element.getAttribute(
+                    `data-${lang}`
+                );
+
+        });
+
+
+    document
+        .querySelectorAll(`[data-placeholder-${lang}]`)
+        .forEach(element => {
+
+            element.placeholder =
+                element.getAttribute(
+                    `data-placeholder-${lang}`
+                );
+
+        });
+
+
+    document
+        .querySelectorAll(".languages button")
+        .forEach(button => {
+
+            button.classList.remove("active");
+
+        });
+
+
+    document
+        .getElementById(`lang-${lang}`)
+        .classList.add("active");
+
+
+    document
+        .querySelectorAll("select option")
+        .forEach(option => {
+
+            const translated =
+                option.getAttribute(
+                    `data-${lang}`
+                );
+
+            if (translated) {
+
+                option.textContent =
+                    translated;
+
+            }
+
+        });
+
+}
+
+
+
+/* =========================================================
+   ATTENDANCE
+========================================================= */
+
+function attendanceChanged() {
+
+    const selection =
+        document.querySelector(
+            'input[name="Assistencia"]:checked'
+        );
+
+
+    if (
+        selection &&
+        selection.value === "No"
+    ) {
+
+
+        document
+            .querySelectorAll(
+                'input[name="Acompanyant"]'
+            )
+            .forEach(radio => {
+
+                radio.checked = false;
+
+            });
+
+
+        const guestFields =
+            document.getElementById(
+                "guest-fields"
+            );
+
+
+        guestFields.classList.remove(
+            "visible"
+        );
+
+
+        const guestName =
+            document.getElementById(
+                "guest-name"
+            );
+
+
+        const guestSurname =
+            document.getElementById(
+                "guest-surname"
+            );
+
+
+        guestName.required = false;
+        guestSurname.required = false;
+
+        guestName.value = "";
+        guestSurname.value = "";
+
+    }
+
+}
+
+
+
+/* =========================================================
+   GUEST
+========================================================= */
+
+function guestChanged() {
+
+    const selection =
+        document.querySelector(
+            'input[name="Acompanyant"]:checked'
+        );
+
+
+    const fields =
+        document.getElementById(
+            "guest-fields"
+        );
+
+
+    const name =
+        document.getElementById(
+            "guest-name"
+        );
+
+
+    const surname =
+        document.getElementById(
+            "guest-surname"
+        );
+
+
+    if (
+        selection &&
+        selection.value === "Sí"
+    ) {
+
+        fields.classList.add(
+            "visible"
+        );
+
+        name.required = true;
+        surname.required = true;
+
+    }
+
+    else {
+
+        fields.classList.remove(
+            "visible"
+        );
+
+        name.required = false;
+        surname.required = false;
+
+        name.value = "";
+        surname.value = "";
+
+    }
+
+}
+
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+const nav =
+    document.getElementById(
+        "nav"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (
+            window.scrollY > 100
+        ) {
+
+            nav.classList.add(
+                "scrolled"
+            );
+
+        }
+
+        else {
+
+            nav.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+const revealObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target
+                            .classList
+                            .add(
+                                "visible"
+                            );
+
+
+                        revealObserver
+                            .unobserve(
+                                entry.target
+                            );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold: .12
+        }
+
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(
+        element => {
+
+            revealObserver.observe(
+                element
+            );
+
+        }
+    );
+
+
+
+/* =========================================================
+   FORMSPREE
+========================================================= */
+
+const weddingForm =
+    document.getElementById(
+        "wedding-form"
+    );
+
+
+weddingForm.addEventListener(
+
+    "submit",
+
+    async function(event) {
+
+
+        event.preventDefault();
+
+
+        const button =
+            weddingForm.querySelector(
+                ".submit"
+            );
+
+
+        const originalText =
+            button.textContent;
+
+
+        button.disabled = true;
+
+        button.style.opacity = ".55";
+
+
+        const data =
+            new FormData(
+                weddingForm
+            );
+
+
+        try {
+
+
+            const response =
+                await fetch(
+
+                    weddingForm.action,
+
+                    {
+
+                        method: "POST",
+
+                        body: data,
+
+                        headers: {
+
+                            Accept:
+                                "application/json"
+
+                        }
+
+                    }
+
+                );
+
+
+            if (
+                response.ok
+            ) {
+
+
+                weddingForm.reset();
+
+
+                document
+                    .getElementById(
+                        "guest-fields"
+                    )
+                    .classList
+                    .remove(
+                        "visible"
+                    );
+
+
+                document
+                    .getElementById(
+                        "form-message"
+                    )
+                    .style
+                    .display =
+                    "block";
+
+
+            }
+
+            else {
+
+
+                alert(
+
+                    currentLanguage === "ca"
+
+                    ? "Hi ha hagut un problema. Torna-ho a provar."
+
+                    : currentLanguage === "es"
+
+                    ? "Ha habido un problema. Vuelve a intentarlo."
+
+                    : "Something went wrong. Please try again."
+
+                );
+
+
+            }
+
+
+        }
+
+        catch (error) {
+
+
+            alert(
+
+                currentLanguage === "ca"
+
+                ? "No s'ha pogut enviar el formulari."
+
+                : currentLanguage === "es"
+
+                ? "No se ha podido enviar el formulario."
+
+                : "The form could not be sent."
+
+            );
+
+
+        }
+
+
+        button.disabled = false;
+
+        button.style.opacity = "1";
+
+        button.textContent =
+            originalText;
+
+
+    }
+
+);
+
+
+</script>
+
+
+</body>
+
+</html>
