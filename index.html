@@ -556,6 +556,28 @@ h3,
     margin-bottom: 24px;
 }
 
+
+/* ENLLAÇ DINS DEL TEXT */
+
+.inline-link {
+    color: inherit;
+
+    text-decoration: none;
+
+    border-bottom:
+        1px solid currentColor;
+
+    transition:
+        opacity .2s ease;
+}
+
+.inline-link:hover {
+    opacity: .6;
+}
+
+
+/* MAPA */
+
 .map-frame {
     width: 100%;
     height: 300px;
@@ -568,6 +590,9 @@ h3,
         grayscale(100%)
         contrast(1.02);
 }
+
+
+/* ENLLAÇ EDITORIAL */
 
 .editorial-link {
     display: inline-block;
@@ -1745,17 +1770,35 @@ textarea {
             </h3>
 
 
-            <p
-                data-ca="La celebració serà a La Boscana, Bellvís. Aquí tens la ubicació perquè et sigui més fàcil planificar-ho tot."
+            <p>
 
-                data-es="La celebración va a ser en La Boscana, Bellvís. Acá tenés la ubicación para que te resulte más fácil planificarlo todo."
+                <span
+                    data-ca="La celebració serà a "
+                    data-es="La celebración será en "
+                    data-en="The celebration will take place at ">
 
-                data-en="The celebration will take place at La Boscana, Bellvís. Here’s the location to make planning your journey a little easier.">
+                    La celebració serà a
 
-                La celebració tindrà lloc
-                a La Boscana, a Bellvís. 
-                Aquí tens la ubicació perquè 
-                et sigui més fàcil planificar-ho tot.
+                </span>
+
+                <a
+                    href="https://www.laboscanaevents.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-link">
+
+                    La Boscana
+
+                </a>
+
+                <span
+                    data-ca=", Bellvís. Aquí tens la ubicació perquè et sigui més fàcil planificar-ho tot."
+                    data-es=", Bellvís. Acá tenés la ubicación para que te resulte más fácil planificarlo todo."
+                    data-en=", Bellvís. Here is the location to make planning your journey easier.">
+
+                    , Bellvís. Aquí tens la ubicació perquè et sigui més fàcil planificar-ho tot.
+
+                </span>
 
             </p>
 
@@ -1779,23 +1822,23 @@ textarea {
 
 
             <h3>
-                Dress code
+                Dress<br>
+                code
             </h3>
 
 
             <p
-                data-ca="Serà una celebració elegant però relaxada. Cadascú és lliure de vestir com vulgui, però si necessites idees, hem preparat una mica d’inspiració perquè et puguis orientar."
+                data-ca="Serà una celebració elegant però relaxada. Cadascú és lliure de vestir com vulgui, però si necessites idees, hem preparat una mica d'inspiració perquè et puguis orientar."
 
-                data-es="Será una celebración elegante pero relajada. Cada quien es libre de vestir como quiera, pero si necesitás ideas tenemos preparada algo de inspiración para que puedas guiarte."
+                data-es="Será una celebración elegante pero relajada. Cada uno es libre de vestirse como quiera, pero si necesitás ideas, preparamos un poco de inspiración para orientarte."
 
-                data-en="It’ll be an elegant but relaxed celebration. Everyone is free to dress however they like, but if you need some ideas, we’ve put together a little inspiration to help you out.">
+                data-en="It'll be an elegant but relaxed celebration. Everyone is free to dress however they like, but if you need some ideas, we've put together a little inspiration to help you out.">
 
-                Serà una celebració elegant 
-                però relaxada. Cadascú és lliure 
-                de vestir com vulgui, però si 
-                necessites idees, hem preparat 
-                una mica d’inspiració perquè 
-                et puguis orientar.
+                Serà una celebració elegant però relaxada.
+                Cadascú és lliure de vestir com vulgui,
+                però si necessites idees,
+                hem preparat una mica d'inspiració
+                perquè et puguis orientar.
 
             </p>
 
@@ -1835,15 +1878,14 @@ textarea {
 
 
             <p
-                data-ca="Et deixem algunes opcions d’allotjament a Lleida i voltants perquè puguis triar la que et vagi millor."
+                data-ca="Et deixem algunes opcions d'allotjament a Lleida i voltants perquè puguis triar la que et vagi millor."
 
-                data-es="Te dejamos algunas opciones de alojamiento en Lleida y alrededores para que puedas escoger la que te vaya mejor."
+                data-es="Te dejamos algunas opciones de alojamiento en Lleida y alrededores para que puedas elegir la que te vaya mejor."
 
                 data-en="Here are a few accommodation options in Lleida and the surrounding area so you can choose whichever suits you best.">
 
-                Et deixem algunes opcions 
-                d’allotjament a Lleida i 
-                voltants perquè puguis triar 
+                Et deixem algunes opcions d'allotjament
+                a Lleida i voltants perquè puguis triar
                 la que et vagi millor.
 
             </p>
@@ -2032,7 +2074,7 @@ textarea {
 
             data-ca="CONFIRMA'NS SI PODRÀS ACOMPANYAR-NOS I INDICA'NS TAMBÉ SI VINDRÀS AMB ACOMPANYANT, SI NECESSITARÀS BUS O SI TENIU ALGUNA AL·LÈRGIA O NECESSITAT ALIMENTÀRIA."
 
-            data-es="CONFIRMÁ SI PODRÁS ACOMPAÑARNOS E INDÍCANOS TAMBIÉN SI VENÍS CON ACOMPAÑANTE, SI NECESITARÁS BUS O SI TENÉIS ALGUNA ALERGIA O NECESIDAD ALIMENTARIA."
+            data-es="CONFIRMÁ SI PODRÁS ACOMPAÑARNOS E INDICANOS TAMBIÉN SI VENÍS CON ACOMPAÑANTE, SI NECESITARÁS BUS O SI TENÉS ALGUNA ALERGIA O NECESIDAD ALIMENTARIA."
 
             data-en="PLEASE LET US KNOW IF YOU'LL BE JOINING US, WHETHER YOU'LL BRING A GUEST, NEED THE BUS, OR HAVE ANY ALLERGIES OR DIETARY REQUIREMENTS.">
 
