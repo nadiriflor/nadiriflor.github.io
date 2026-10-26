@@ -561,14 +561,11 @@ h3,
 
 .inline-link {
     color: inherit;
-
     text-decoration: none;
 
-    border-bottom:
-        1px solid currentColor;
+    border-bottom: 1px solid currentColor;
 
-    transition:
-        opacity .2s ease;
+    transition: opacity .2s ease;
 }
 
 .inline-link:hover {
@@ -1757,63 +1754,60 @@ textarea {
 
         <!-- COM ARRIBAR -->
 
-        <article class="info-card reveal">
+            <article class="info-card reveal">
+
+        <h3
+            data-ca="Com arribar"
+            data-es="Cómo llegar"
+            data-en="Getting there">
+
+            Com arribar
+
+        </h3>
 
 
-            <h3
-                data-ca="Com arribar"
-                data-es="Cómo llegar"
-                data-en="Getting there">
+        <p class="info-location-text">
 
-                Com arribar
+            <span
+                data-ca="La celebració serà a "
+                data-es="La celebración será en "
+                data-en="The celebration will take place at ">
 
-            </h3>
+                La celebració serà a
 
+            </span>
 
-            <p>
+            <a
+                class="inline-link"
+                href="https://www.laboscanaevents.com/"
+                target="_blank"
+                rel="noopener noreferrer">
 
-                <span
-                    data-ca="La celebració serà a "
-                    data-es="La celebración será en "
-                    data-en="The celebration will take place at ">
+                La Boscana
 
-                    La celebració serà a
+            </a>
 
-                </span>
+            <span
+                data-ca=", Bellvís. Aquí tens la ubicació perquè et sigui més fàcil planificar-ho tot."
+                data-es=", Bellvís. Acá tenés la ubicación para que te resulte más fácil planificar todo."
+                data-en=", Bellvís. Here is the location to make planning everything easier.">
 
-                <a
-                    href="https://www.laboscanaevents.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-link">
+                , Bellvís. Aquí tens la ubicació perquè et sigui més fàcil planificar-ho tot.
 
-                    La Boscana
+            </span>
 
-                </a>
-
-                <span
-                    data-ca=", Bellvís. Aquí tens la ubicació perquè et sigui més fàcil planificar-ho tot."
-                    data-es=", Bellvís. Acá tenés la ubicación para que te resulte más fácil planificarlo todo."
-                    data-en=", Bellvís. Here is the location to make planning your journey easier.">
-
-                    , Bellvís. Aquí tens la ubicació perquè et sigui més fàcil planificar-ho tot.
-
-                </span>
-
-            </p>
+        </p>
 
 
-            <iframe
-                class="map-frame"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=41.6619115,0.8080065&z=16&output=embed">
-            </iframe>
+        <iframe
+            class="map-frame"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=41.6619115,0.8080065&z=16&output=embed">
+        </iframe>
 
-
-        </article>
-
+    </article>
 
 
         <!-- DRESS CODE -->
@@ -1968,16 +1962,12 @@ textarea {
 
 <section class="gift-section">
 
-
     <div class="gift-inner reveal">
-
 
         <div>
 
-
             <div
                 class="gift-heading"
-
                 data-ca="Regal"
                 data-es="Regalo"
                 data-en="Gift">
@@ -1986,37 +1976,32 @@ textarea {
 
             </div>
 
-
         </div>
 
 
         <div class="gift-content">
 
-
             <p
                 class="gift-copy"
 
-                data-ca="El millor regal és que puguis compartir aquest dia amb nosaltres. Però si, a més, vols contribuir al nostre viatge de noces, pots fer-ho en aquest compte o en efectiu. Prometem enviar alguna foto per fer-te enveja!."
+                data-ca="El millor regal és que puguis compartir aquest dia amb nosaltres. Però si, a més, vols contribuir al nostre viatge de noces, pots fer-ho en aquest compte o en efectiu. Prometem enviar alguna foto per fer-te enveja!"
 
                 data-es="El mejor regalo es que puedas compartir este día con nosotras. Pero si además querés contribuir con nuestra luna de miel, podés hacerlo en esta cuenta o en efectivo. ¡Prometemos mandar alguna foto para darte envidia!"
 
-                data-en="The best gift is having you share this day with us. But if you’d also like to contribute to our honeymoon, you can do so through this account or in cash. We promise to send you a photo or two to make you jealous!>
+                data-en="The best gift is having you share this day with us. But if you'd also like to contribute to our honeymoon, you can do so through this account or in cash. We promise to send you a photo or two to make you jealous!">
 
-                El millor regal és que puguis 
-                compartir aquest dia amb nosaltres. 
-                Però si, a més, vols contribuir al 
-                nostre viatge de noces, pots fer-ho 
-                en aquest compte o en efectiu. 
-                Prometem enviar alguna foto per 
-                fer-te enveja!
+                El millor regal és que puguis compartir aquest dia amb nosaltres.
+                Però si, a més, vols contribuir al nostre viatge de noces,
+                pots fer-ho en aquest compte o en efectiu.
+                Prometem enviar alguna foto per fer-te enveja!
 
             </p>
 
 
             <div class="gift-bank-block">
+
                 <div
                     class="gift-bank-label"
-
                     data-ca="Compte corrent"
                     data-es="Cuenta corriente"
                     data-en="Bank account">
@@ -2027,23 +2012,16 @@ textarea {
 
 
                 <div class="gift-iban">
-    
                     ES06 1544 7889 7366 5443 4434
-
                 </div>
-
 
             </div>
 
-
         </div>
-
 
     </div>
 
-
 </section>
-
 
 
 <!-- ========================================================
@@ -3198,9 +3176,20 @@ weddingForm.addEventListener(
             originalText;
 
 
-    }
+        }
 
-);
+    );
+
+}
+
+
+/* =========================================================
+   INITIAL LANGUAGE
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+    setLanguage("ca");
+});
 
 
 </script>
