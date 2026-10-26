@@ -107,8 +107,8 @@ h3,
 ========================================================== */
 
 .reveal {
-    opacity: 0;
-    transform: translateY(26px);
+    opacity: 1;
+    transform: translateY(0);
     transition:
         opacity .85s ease,
         transform .85s ease;
@@ -2734,8 +2734,7 @@ textarea {
 
 <script>
 
-
-let currentLanguage = "ca";
+var currentLanguage = "ca";
 
 
 /* =========================================================
@@ -2749,64 +2748,84 @@ function setLanguage(lang) {
     document.documentElement.lang = lang;
 
 
-    document
-        .querySelectorAll(`[data-${lang}]`)
-        .forEach(element => {
-
-            element.textContent =
-                element.getAttribute(
-                    `data-${lang}`
-                );
-
-        });
+    var elements =
+        document.querySelectorAll("[data-" + lang + "]");
 
 
-    document
-        .querySelectorAll(`[data-placeholder-${lang}]`)
-        .forEach(element => {
+    elements.forEach(function(element) {
 
-            element.placeholder =
-                element.getAttribute(
-                    `data-placeholder-${lang}`
-                );
+        var translation =
+            element.getAttribute("data-" + lang);
 
-        });
+        if (translation !== null) {
+            element.textContent = translation;
+        }
 
-
-    document
-        .querySelectorAll(".languages button")
-        .forEach(button => {
-
-            button.classList.remove("active");
-
-        });
+    });
 
 
-    document
-        .getElementById(`lang-${lang}`)
-        .classList.add("active");
+    var placeholders =
+        document.querySelectorAll(
+            "[data-placeholder-" + lang + "]"
+        );
 
 
-    document
-        .querySelectorAll("select option")
-        .forEach(option => {
+    placeholders.forEach(function(element) {
 
-            const translated =
-                option.getAttribute(
-                    `data-${lang}`
-                );
+        var translation =
+            element.getAttribute(
+                "data-placeholder-" + lang
+            );
 
-            if (translated) {
+        if (translation !== null) {
+            element.placeholder = translation;
+        }
 
-                option.textContent =
-                    translated;
+    });
 
-            }
 
-        });
+    var buttons =
+        document.querySelectorAll(
+            ".languages button"
+        );
+
+
+    buttons.forEach(function(button) {
+        button.classList.remove("active");
+    });
+
+
+    var activeButton =
+        document.getElementById(
+            "lang-" + lang
+        );
+
+
+    if (activeButton) {
+        activeButton.classList.add("active");
+    }
+
+
+    var options =
+        document.querySelectorAll(
+            "select option"
+        );
+
+
+    options.forEach(function(option) {
+
+        var translation =
+            option.getAttribute(
+                "data-" + lang
+            );
+
+        if (translation) {
+            option.textContent = translation;
+        }
+
+    });
 
 }
-
 
 
 /* =========================================================
@@ -2815,7 +2834,7 @@ function setLanguage(lang) {
 
 function attendanceChanged() {
 
-    const selection =
+    var selection =
         document.querySelector(
             'input[name="Assistencia"]:checked'
         );
@@ -2826,51 +2845,56 @@ function attendanceChanged() {
         selection.value === "No"
     ) {
 
-
-        document
-            .querySelectorAll(
+        var guestRadios =
+            document.querySelectorAll(
                 'input[name="Acompanyant"]'
-            )
-            .forEach(radio => {
-
-                radio.checked = false;
-
-            });
+            );
 
 
-        const guestFields =
+        guestRadios.forEach(function(radio) {
+            radio.checked = false;
+        });
+
+
+        var guestFields =
             document.getElementById(
                 "guest-fields"
             );
 
 
-        guestFields.classList.remove(
-            "visible"
-        );
-
-
-        const guestName =
+        var guestName =
             document.getElementById(
                 "guest-name"
             );
 
 
-        const guestSurname =
+        var guestSurname =
             document.getElementById(
                 "guest-surname"
             );
 
 
-        guestName.required = false;
-        guestSurname.required = false;
+        if (guestFields) {
+            guestFields.classList.remove(
+                "visible"
+            );
+        }
 
-        guestName.value = "";
-        guestSurname.value = "";
+
+        if (guestName) {
+            guestName.required = false;
+            guestName.value = "";
+        }
+
+
+        if (guestSurname) {
+            guestSurname.required = false;
+            guestSurname.value = "";
+        }
 
     }
 
 }
-
 
 
 /* =========================================================
@@ -2879,25 +2903,25 @@ function attendanceChanged() {
 
 function guestChanged() {
 
-    const selection =
+    var selection =
         document.querySelector(
             'input[name="Acompanyant"]:checked'
         );
 
 
-    const fields =
+    var fields =
         document.getElementById(
             "guest-fields"
         );
 
 
-    const name =
+    var guestName =
         document.getElementById(
             "guest-name"
         );
 
 
-    const surname =
+    var guestSurname =
         document.getElementById(
             "guest-surname"
         );
@@ -2908,38 +2932,54 @@ function guestChanged() {
         selection.value === "Sí"
     ) {
 
-        fields.classList.add(
-            "visible"
-        );
+        if (fields) {
+            fields.classList.add(
+                "visible"
+            );
+        }
 
-        name.required = true;
-        surname.required = true;
+
+        if (guestName) {
+            guestName.required = true;
+        }
+
+
+        if (guestSurname) {
+            guestSurname.required = true;
+        }
 
     }
 
     else {
 
-        fields.classList.remove(
-            "visible"
-        );
+        if (fields) {
+            fields.classList.remove(
+                "visible"
+            );
+        }
 
-        name.required = false;
-        surname.required = false;
 
-        name.value = "";
-        surname.value = "";
+        if (guestName) {
+            guestName.required = false;
+            guestName.value = "";
+        }
+
+
+        if (guestSurname) {
+            guestSurname.required = false;
+            guestSurname.value = "";
+        }
 
     }
 
 }
 
 
-
 /* =========================================================
    NAVIGATION
 ========================================================= */
 
-const nav =
+var nav =
     document.getElementById(
         "nav"
     );
@@ -2947,11 +2987,14 @@ const nav =
 
 window.addEventListener(
     "scroll",
-    () => {
+    function() {
 
-        if (
-            window.scrollY > 100
-        ) {
+        if (!nav) {
+            return;
+        }
+
+
+        if (window.scrollY > 100) {
 
             nav.classList.add(
                 "scrolled"
@@ -2971,226 +3014,178 @@ window.addEventListener(
 );
 
 
-
-/* =========================================================
-   REVEAL
-========================================================= */
-
-const revealObserver =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target
-                            .classList
-                            .add(
-                                "visible"
-                            );
-
-
-                        revealObserver
-                            .unobserve(
-                                entry.target
-                            );
-
-                    }
-
-                }
-            );
-
-        },
-
-        {
-            threshold: .12
-        }
-
-    );
-
-
-document
-    .querySelectorAll(".reveal")
-    .forEach(
-        element => {
-
-            revealObserver.observe(
-                element
-            );
-
-        }
-    );
-
-
-
 /* =========================================================
    FORMSPREE
 ========================================================= */
 
-const weddingForm =
+var weddingForm =
     document.getElementById(
         "wedding-form"
     );
 
 
-weddingForm.addEventListener(
+if (weddingForm) {
 
-    "submit",
+    weddingForm.addEventListener(
+        "submit",
+        function(event) {
 
-    async function(event) {
-
-
-        event.preventDefault();
-
-
-        const button =
-            weddingForm.querySelector(
-                ".submit"
-            );
+            event.preventDefault();
 
 
-        const originalText =
-            button.textContent;
+            var button =
+                weddingForm.querySelector(
+                    ".submit"
+                );
 
 
-        button.disabled = true;
-
-        button.style.opacity = ".55";
-
-
-        const data =
-            new FormData(
-                weddingForm
-            );
+            if (!button) {
+                return;
+            }
 
 
-        try {
+            var originalText =
+                button.textContent;
 
 
-            const response =
-                await fetch(
+            button.disabled = true;
 
-                    weddingForm.action,
+            button.style.opacity = ".55";
 
-                    {
 
-                        method: "POST",
+            var data =
+                new FormData(
+                    weddingForm
+                );
 
-                        body: data,
 
-                        headers: {
+            fetch(
+                weddingForm.action,
+                {
+                    method: "POST",
 
-                            Accept:
-                                "application/json"
+                    body: data,
 
-                        }
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }
+            )
+
+            .then(function(response) {
+
+                if (response.ok) {
+
+                    weddingForm.reset();
+
+
+                    var guestFields =
+                        document.getElementById(
+                            "guest-fields"
+                        );
+
+
+                    if (guestFields) {
+
+                        guestFields.classList.remove(
+                            "visible"
+                        );
 
                     }
 
-                );
+
+                    var message =
+                        document.getElementById(
+                            "form-message"
+                        );
 
 
-            if (
-                response.ok
-            ) {
+                    if (message) {
+
+                        message.style.display =
+                            "block";
+
+                    }
 
 
-                weddingForm.reset();
+                    button.disabled = false;
 
+                    button.style.opacity = "1";
 
-                document
-                    .getElementById(
-                        "guest-fields"
-                    )
-                    .classList
-                    .remove(
-                        "visible"
+                    button.textContent =
+                        originalText;
+
+                }
+
+                else {
+
+                    throw new Error(
+                        "Formspree error"
                     );
 
+                }
 
-                document
-                    .getElementById(
-                        "form-message"
-                    )
-                    .style
-                    .display =
-                    "block";
+            })
 
+            .catch(function() {
 
-            }
-
-            else {
+                var errorMessage;
 
 
-                alert(
+                if (currentLanguage === "ca") {
 
-                    currentLanguage === "ca"
+                    errorMessage =
+                        "No s'ha pogut enviar el formulari.";
 
-                    ? "Hi ha hagut un problema. Torna-ho a provar."
+                }
 
-                    : currentLanguage === "es"
+                else if (
+                    currentLanguage === "es"
+                ) {
 
-                    ? "Ha habido un problema. Vuelve a intentarlo."
+                    errorMessage =
+                        "No se ha podido enviar el formulario.";
 
-                    : "Something went wrong. Please try again."
+                }
 
-                );
+                else {
 
+                    errorMessage =
+                        "The form could not be sent.";
 
-            }
-
-
-        }
-
-        catch (error) {
+                }
 
 
-            alert(
+                alert(errorMessage);
 
-                currentLanguage === "ca"
 
-                ? "No s'ha pogut enviar el formulari."
+                button.disabled = false;
 
-                : currentLanguage === "es"
+                button.style.opacity = "1";
 
-                ? "No se ha podido enviar el formulario."
+                button.textContent =
+                    originalText;
 
-                : "The form could not be sent."
-
-            );
-
+            });
 
         }
-
-
-        button.disabled = false;
-
-        button.style.opacity = "1";
-
-        button.textContent =
-            originalText;
-
-
-        }
-
     );
 
 }
 
 
 /* =========================================================
-   INITIAL LANGUAGE
+   INITIAL STATE
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
-    setLanguage("ca");
-});
+/*
+   No executem setLanguage("ca") automàticament.
 
+   El català ja està escrit directament a l'HTML.
+
+   CAT / ARG / ENG només canvien quan l'usuari
+   prem el botó corresponent.
+*/
 
 </script>
 
@@ -3198,3 +3193,4 @@ document.addEventListener("DOMContentLoaded", function () {
 </body>
 
 </html>
+
